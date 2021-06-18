@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects</title>
+    <link rel="stylesheet" href="projects.css">
+</head>
+<body>
+    <div id='details'>
+        <h1>I am familiar with:</h1>
+        <ul>
+            <li>HTML5</li>
+            <li>CSS3</li>
+            <li>JavaScript</li>
+            <li>JQuerry</li>
+            <li>Bootstrap</li>
+            <li>Git - GitHub</li>
+            <li>React - Redux</li>
+        </ul>
+        <a href='index.html'>Back to main menu</a>
+    </div>
+    <div id='frame'></div>
+    <div id='gallery-wrapper'>
+        <button id="slideBack" type="button">Prev</button>
+        <figure id="gallery">
+            <div>
+                <a href='https://codepen.io/b-lint-pipei/full/abJbrpW' target="_blank"><h3>Full Page</h3></a>
+                <a href='https://codepen.io/b-lint-pipei/pen/abJbrpW' target="_blank"><h4>Source Code</h4></a>
+                <img class="preview" id="pic1" src="images/DrumMachine.png" alt='' onclick="upDate(1)">
+            </div>
+            <div>
+                <a href='https://codepen.io/b-lint-pipei/full/YzZXoEd' target="_blank"><h3>Full Page</h3></a>
+                <a href='https://codepen.io/b-lint-pipei/pen/YzZXoEd' target="_blank"><h4>Source Code</h4></a>
+                <img class="preview" id="pic2" src="images/Calculator.png" alt='' onclick="upDate(2)">
+            </div>
+            <div>
+                <a href='https://codepen.io/b-lint-pipei/full/WNojgja' target="_blank"><h3>Full Page</h3></a>
+                <a href='https://codepen.io/b-lint-pipei/pen/WNojgja' target="_blank"><h4>Source Code</h4></a> 
+                <img class="preview" id="pic3" src="images/LandingPage.png" alt="" onclick="upDate(3)">
+            </div>
+            <div>
+                <a href='https://codepen.io/b-lint-pipei/full/LYWPvrL' target="_blank"><h3>Full Page</h3></a>
+                <a href='https://codepen.io/b-lint-pipei/pen/LYWPvrL' target="_blank"><h4>Source Code</h4></a> 
+                <img class="preview" id="pic4" src="images/MovieMarkdown.png" alt="" onclick="upDate(4)">
+            </div>
+            <div>
+                <a href='https://codepen.io/b-lint-pipei/full/qBrWaOa' target="_blank"><h3>Full Page</h3></a>
+                <a href='https://codepen.io/b-lint-pipei/pen/qBrWaOa' target="_blank"><h4>Source Code</h4></a> 
+                <img class="preview" id="pic5" src="images/RandomQuote.png" alt="" onclick="upDate(5)">
+            </div>
+            <div>
+                <a href='https://github.com/balintpipei/WebsiteStyleGuide/blob/main/index.html' target="_blank"><h4>Source Code</h4></a>
+                <img class="preview" id="pic6" src="images/StyleGuide.png" alt="" onclick="upDate(6)">
+            </div>
+            <div>
+                <a href='https://codepen.io/b-lint-pipei/full/NWbGYMp' target="_blank"><h3>Full Page</h3></a>
+                <a href='https://codepen.io/b-lint-pipei/pen/NWbGYMp' target="_blank"><h4>Source Code</h4></a>
+                <img class="preview" id="pic7" alt="" src="images/SurveyForm.png" onclick="upDate(7)">
+            </div>
+            <div>
+                <a href='https://github.com/balintpipei/TeaCozy/blob/main/index.html' target="_blank"><h4>Source Code</h4></a>
+                <img class="preview" id="pic8" alt="" src="images/TeaCozy.png" onclick="upDate(8)">
+            </div>
+            <div>
+                <a href='https://codepen.io/b-lint-pipei/full/WNoWWaV' target="_blank"><h3>Full Page</h3></a>
+               <a href='https://codepen.io/b-lint-pipei/pen/WNoWWaV' target="_blank"><h4>Source Code</h4></a>
+                <img class="preview" id="pic9" alt="" src="images/TechDocPage.png" onclick="upDate(9)">
+            </div>
+            <div>
+                <a href='https://codepen.io/b-lint-pipei/full/ExNxZBy' target="_blank"><h3>Full Page</h3></a>
+                <a href='https://codepen.io/b-lint-pipei/pen/ExNxZBy' target="_blank"><h4>Source Code</h4></a> 
+                <img class="preview" id="pic10" alt="" src="images/TributePage.png" onclick="upDate(10)">
+            </div>
+        </figure>
+        <button id="slide" type="button">Next</button>
+    </div>
+
+<script>
+    var gallery = document.getElementById('gallery');
+gallery.addEventListener('mouseover', function(e) {
+	 if (e.target !== e.currentTarget) {
+        var target = e.target.id;
+        upDate(target);
+    }
+    e.stopPropagation();
+}, false);
+
+function upDate(target){
+	var tgt = document.getElementById(target);
+	var src = tgt.src;
+	var alt = tgt.alt;
+	var fig = document.getElementById('frame');
+	var cap = document.getElementById('caption');
+	fig.style.backgroundImage = "url("+src+")";
+  cap.innerHTML = alt;
+}
+//slide on button
+
+var button = document.getElementById('slide');
+button.onclick = function () {
+    sideScroll(gallery,'right',25,100,10);
+};
+
+var back = document.getElementById('slideBack');
+back.onclick = function () {
+    sideScroll(gallery,'left',25,100,10);
+};
+
+function sideScroll(element,direction,speed,distance,step){
+    scrollAmount = 0;
+    var slideTimer = setInterval(function(){
+        if(direction == 'left'){
+            element.scrollLeft -= step;
+        } else {
+            element.scrollLeft += step;
+        }
+        scrollAmount += step;
+        if(scrollAmount >= distance){
+            window.clearInterval(slideTimer);
+        }
+    }, speed);
+};
+</script>
+</body>
+</html>

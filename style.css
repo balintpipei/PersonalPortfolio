@@ -1,0 +1,119 @@
+* {
+    box-sizing: border-box;
+}
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 0;
+    height: 90vh;
+    width: 100%;
+    font-size: 16px;
+    background-color: rgb(0,0,0,0.92)
+}
+#wrapper {
+    width: 40%;
+    text-align: center;
+}
+#header {
+    margin-bottom: 4rem;
+    color: white;
+    font-size: 3rem;
+}
+h2 {
+    font-size: 2rem;
+    color: white;
+}
+#D3Cube {
+    margin: 0 auto;
+    width: 300px;
+    height: 300px;
+    transform: rotateX(-5deg) rotateY(-10deg) rotateZ(0deg);
+    transform-style: preserve-3d;
+    transition: all 0s linear;
+    animation: cubeRotation 10s infinite;
+}
+#D3Cube > div {
+    background-color: rgb(0,0,0,0.95)!important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    transition: all 0s linear;
+    width: 300px;
+    height: 300px;
+    overflow: hidden;
+}
+#side1 {
+    transform: rotatex(90deg) translateX(0px) translateY(0px) translateZ(150px);
+}
+#side2 {
+    transform: rotateY(-90deg) translateX(0px) translateY(0px) translateZ(150px);
+}
+#side3 {
+    transform: translateX(0px) translateY(0px) translateZ(150px);
+}
+#side4 {
+    transform: rotateY(90deg) translateX(0px) translateY(0px) translateZ(150px);
+}
+#side5 {
+    transform: rotateY(180deg) translateX(0px) translateY(0px) translateZ(150px);
+}
+#side6 {
+    transform: rotateX(-90deg) translateX(0px) translateY(0px) translateZ(150px);
+}
+#D3Cube::after {
+    content: '';
+    position: absolute;
+    transition: all 0s linear;
+    width: 400px;
+    height: 400px;
+    border-radius: 20px;
+    overflow: hidden;
+    transform: rotateX(-90deg) translateX(-200px) translateY(0px) translateZ(200px);
+    background: white;
+    filter: blur(5em);
+}
+
+@keyframes cubeRotation {
+    0%   {  transform: rotateX(-5deg) rotateY(-10deg) rotateZ(0deg); }
+    25%  { transform: rotateX(-5deg) rotateY(-100deg) rotateZ(0deg); }
+    50% {transform: rotateX(-5deg) rotateY(-190deg) rotateZ(0deg); }
+    75% { transform : rotateX(-5deg) rotateY(-280deg) rotateZ(0deg); }
+    100% { transform : rotateX(-5deg) rotateY(-370deg) rotateZ(0deg); }
+}
+
+#D3Cube:hover,
+#D3Cube:focus {
+    animation-play-state: paused;
+    cursor: pointer;
+}
+.button a {
+    text-decoration: none;
+    font-size: 2rem;
+    color: white;
+}
+.button,
+#D3Cube > div {
+    border-radius: 0.5rem;
+    border: white solid 0.25em;
+    background: rgb(0,0,0,0.8);
+   text-shadow: 0 0 0.4em black, 0 0 0.5em white;
+   box-shadow: 0 0 0.6em 0 white,
+   inset 0 0 0.6em white;
+   cursor: pointer;
+}
+.button:hover,
+.button:focus {
+    background-color: white;
+    text-shadow: none;
+    opacity: 1;
+}
+.button a:hover,
+.button a:focus { 
+    color: black;
+}
+#D3Cube > div:hover {
+    opacity: 1;
+}

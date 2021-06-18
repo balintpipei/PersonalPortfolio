@@ -1,0 +1,78 @@
+*{
+    box-sizing: border-box;
+}
+body {
+    margin: 0;
+    width: 100%;
+    background-color: black;
+    font-size: 20px;
+}
+
+#about-me {
+    background-image: url('images/background.png');
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+    padding: 70px 0 0 70px;
+  }
+  
+  .sessions,
+  .list {
+    list-style: none;
+    margin: 0;
+    padding: 10px;
+    margin-right: 25%;
+  }
+  .list {
+    border-left: 1px solid white;
+    position: relative;
+    padding: 0 0 40px 30px;
+    margin-left: 10px;
+  }
+  .list:before {
+      content: "";
+      width: 15px;
+      height: 15px;
+      background:white;
+      border: 1px solid white;
+      box-shadow: 4px 4px 6px;
+      border-radius: 50%;
+      position: absolute;
+      left: -10px;
+      top: 0px;;
+  }
+  .list:last-child {
+      border: 0;
+      padding-bottom: 0;
+  }
+  p {
+    color: white;
+    font-family: sans-serif;
+    line-height: 1.5;
+    margin-top: 0.4rem;
+    margin-left: 20px;
+  }
+  .time {
+    color:white;
+    margin-top: -8px;
+    padding-bottom: 10px;
+    font-weight: bold;
+    text-decoration: underline;
+  }
+  .images-certification {
+      width: 150px;
+      height: 200px;
+      border-radius: 10px;
+  }
+.certification-ul{
+    color: white;
+    line-height: 2rem;
+}
+#back {
+    text-align: right;
+    padding-right: 8rem;
+}
+#back a{
+    color: white;
+    text-decoration: none;
+    font-size: 2rem;
+}
